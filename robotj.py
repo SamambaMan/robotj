@@ -16,4 +16,6 @@ def main():
     for linha in linhas:
         print(linha['docu_nr_externo'])
 
-if  __name__ =='__main__':main()
+
+if __name__ == '__main__':
+    main()

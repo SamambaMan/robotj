@@ -23,5 +23,3 @@ engine = {'connection': None}
 
 def conn():
     return engine['connection']
-
-
