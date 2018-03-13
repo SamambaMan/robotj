@@ -4,7 +4,7 @@ from robotj.crawler.parser import parse_metadados
 from robotj.test.processos import processo_judicial_1
 
 
-class TestParser(TestCase):
+class Parser(TestCase):
     def test_parse_judicil_process_metadata(self):
         metadados = parse_metadados(
             processo_judicial_1,

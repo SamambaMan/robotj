@@ -3,7 +3,7 @@ from unittest import TestCase
 from robotj.crawler.utils import formata_numero_processo
 
 
-class TestUtils(TestCase):
+class Utils(TestCase):
     def test_format_document_numner(self):
         numero_processo = "09878976543451238976"
 
