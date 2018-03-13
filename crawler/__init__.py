@@ -1,1 +1,1 @@
-from crawler import utils
+from robotj.crawler import utils

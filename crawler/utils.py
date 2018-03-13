@@ -1,18 +1,18 @@
-def format_doc_number(doc_number):
-    place_holder = "{0}-{1}.{2}.{3}.{4}.{5}"
+def formata_numero_processo(numero_processo):
+    mascara = "{0}-{1}.{2}.{3}.{4}.{5}"
 
-    first_chunk = slice(0, 7)
-    second_chunk = slice(7, 9)
-    third_chunk = slice(9, 13)
-    fourth_chunk = slice(13, 14)
-    fifth_chunk = slice(14, 16)
-    sixth_chunk = slice(16, 20)
+    primeira_parte = slice(0, 7)
+    segunda_parte = slice(7, 9)
+    terceira_parte = slice(9, 13)
+    quarta_parte = slice(13, 14)
+    quinta_parte = slice(14, 16)
+    sexta_parte = slice(16, 20)
 
-    return place_holder.format(
-        doc_number[first_chunk],
-        doc_number[second_chunk],
-        doc_number[third_chunk],
-        doc_number[fourth_chunk],
-        doc_number[fifth_chunk],
-        doc_number[sixth_chunk]
+    return mascara.format(
+        numero_processo[primeira_parte],
+        numero_processo[segunda_parte],
+        numero_processo[terceira_parte],
+        numero_processo[quarta_parte],
+        numero_processo[quinta_parte],
+        numero_processo[sexta_parte]
     )
