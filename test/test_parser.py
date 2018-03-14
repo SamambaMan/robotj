@@ -1,10 +1,16 @@
 from unittest import TestCase
 
-from robotj.crawler.parser import parse_metadados
-from robotj.test.processos import processo_judicial_1
+from bs4 import BeautifulSoup
+
+from robotj.crawler.parser import parse_metadados, area_dos_metadados
+from robotj.test.processos import processo_judicial_1, processo_judicial_2
 
 
 class Parser(TestCase):
+    def _prepara_html(self, html):
+        soup_obj = BeautifulSoup(html)
+        return soup_obj.find_all('td')
+
     def test_parse_metadados_processo_judicial(self):
         metadados = parse_metadados(
             processo_judicial_1,
@@ -36,3 +42,13 @@ class Parser(TestCase):
         for chave, valor in expected.items():
             with self.subTest():
                 self.assertEqual(metadados[chave], valor)
+    def test_delimita_linhas_dos_metadados_processo_judicial_1(self):
+        inicio, fim = area_dos_metadados(
+            self._prepara_html(processo_judicial_1)
+        )
+
+        inicio_esperado = 6
+        fim_esperado = 37
+
+        self.assertEqual(inicio, inicio_esperado)
+        self.assertEqual(fim, fim_esperado)

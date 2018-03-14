@@ -36,3 +36,14 @@ def parse_metadados(html, numero_processo):
             '\s+', ' ', linhas[indice].get_text()).strip()
 
     return metadados
+
+
+def area_dos_metadados(linhas_de_dados):
+    # Aparentemente esse valor e fixo
+    inicio = 6
+    for indice, linha in enumerate(linhas_de_dados):
+        if 'Tipo do Movimento:' in linha.get_text():
+            fim = indice - 1
+            break
+
+    return inicio, fim
