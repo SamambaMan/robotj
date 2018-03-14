@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from robotj.crawler.utils import formata_numero_processo
+from robotj.crawler.utils import formata_numero_processo, limpa_conteudo
 
 
 class Utils(TestCase):
@@ -11,3 +11,15 @@ class Utils(TestCase):
         expected = "0987897-65.4345.1.23.8976"
 
         self.assertEqual(numero_processo_formatado, expected)
+
+    def test_limpa_conteudo(self):
+        conteudo_sujo = ('\r\n                        Av. Presidente Lincol'
+                         'n\r\n                        \xa0\r\n            '
+                         '            857\r\n                        \xa0\r'
+                         '\n                        \r\n                   '
+                         '\xa0\r\n                      ')
+
+        conteudo_limpo = limpa_conteudo(conteudo_sujo)
+        esperado = 'Av. Presidente Lincoln 857'
+
+        self.assertEqual(conteudo_limpo, esperado)
