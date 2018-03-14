@@ -5,7 +5,7 @@ from robotj.test.processos import processo_judicial_1
 
 
 class Parser(TestCase):
-    def test_parse_judicil_process_metadata(self):
+    def test_parse_metadados_processo_judicial(self):
         metadados = parse_metadados(
             processo_judicial_1,
             '0004999-58.2015.8.19.0036'
