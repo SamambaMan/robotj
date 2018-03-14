@@ -47,3 +47,7 @@ def area_dos_metadados(linhas_de_dados):
             break
 
     return inicio, fim
+
+
+def limpa_conteudo(conteudo_sujo):
+    return re.sub('\s+', ' ', conteudo_sujo).strip()

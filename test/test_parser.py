@@ -52,3 +52,15 @@ class Parser(TestCase):
 
         self.assertEqual(inicio, inicio_esperado)
         self.assertEqual(fim, fim_esperado)
+
+    def test_limpa_conteudo(self):
+        conteudo_sujo = ('\r\n                        Av. Presidente Lincol'
+                         'n\r\n                        \xa0\r\n            '
+                         '            857\r\n                        \xa0\r'
+                         '\n                        \r\n                   '
+                         '\xa0\r\n                      ')
+
+        conteudo_limpo = limpa_conteudo(conteudo_sujo)
+        esperado = 'Av. Presidente Lincoln 857'
+
+        self.assertEqual(conteudo_limpo, esperado)
